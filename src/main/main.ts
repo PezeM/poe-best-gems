@@ -22,7 +22,8 @@ const createWindow = () => {
     x: mainWindowState.x,
     y: mainWindowState.y,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      webSecurity: false
     },
   });
 

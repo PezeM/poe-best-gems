@@ -1,11 +1,14 @@
 import React from "react";
-import {hot} from "react-hot-loader/root";
+import { hot } from "react-hot-loader/root";
+import { GemList } from "./gemList";
 
-export default hot((): JSX.Element => 
-    (
-        <div>
-          <h1>
-            Your Electron App
-          </h1>
-        </div>
-    ));
+const App = () => {
+  return (
+    <div>
+      <h1>Najbardziej opłacalne gemy</h1>
+      <GemList />
+    </div>
+  )
+}
+
+export default hot(App);
