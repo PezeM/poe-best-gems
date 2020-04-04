@@ -24,4 +24,4 @@ export interface IPoeNinjaItemOverviewLine {
     exaltedValue: number;
     count: number;
     detailsId: string;
-  }
+}

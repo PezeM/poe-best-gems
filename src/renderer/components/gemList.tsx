@@ -22,22 +22,12 @@ export const GemList = () => {
         }
     }, [showAwakenedGems]);
 
-    async function fetchGems() {
-        const allGems= await api.getGems();
-        if(!allGems) return;
-
-        const mappedGems = mapGems(allGems.lines);
-        setGems(mappedGems);
-        setFilteredGems(mappedGems);
-        setShowAwakenedGems(true);
-    }
-
-    function mapGems(gems: IPoeNinjaItemOverviewLine[]) {
+    function mapGems(gems: IPoeNinjaItemOverviewLine[]): Gem[] {
         const result: Gem[] = [];
         gems.forEach(gem => {
             const maxLevel = getGemMaxLevel(gem);
             const leveledGem = gems.find(g => g.name === gem.name && g.gemLevel === maxLevel);
-            if(!leveledGem) {
+            if (!leveledGem) {
                 console.error(`Didn't found max level gem data for gem ${gem.name} with base level ${gem.gemLevel} and leveled ${maxLevel}`);
                 return;
             }
@@ -48,26 +38,40 @@ export const GemList = () => {
         return result;
     }
 
+    async function fetchGems(): Promise<void> {
+        const allGems = await api.getGems();
+        if (!allGems) return;
+
+        const mappedGems = mapGems(allGems.lines);
+        setGems(mappedGems);
+        setFilteredGems(mappedGems);
+        setShowAwakenedGems(true);
+    }
+
     return (
         <div>
             <h3>Ilość gemów {filteredGems.length}</h3>
 
             <div>
                 <label>Show awakened gems</label>
-                <input type="checkbox" checked={showAwakenedGems} 
-                    onChange={() => setShowAwakenedGems(!showAwakenedGems)}></input>
+                <input type="checkbox" checked={showAwakenedGems} onChange={() => setShowAwakenedGems(!showAwakenedGems)}></input>
                 <button onClick={() => fetchGems()}>Refresh data</button>
             </div>
 
-            {filteredGems && filteredGems.map((gem, index) => {
-                return <div key={index}>
-                    <h3>{gem.baseGem.name}</h3>
-                    <img src={gem.baseGem.icon} />
-                    <p>Value: {gem.baseGem.chaosValue} chaos</p>
-                    <p>Level: {gem.baseGem.gemLevel} Quality: {gem.baseGem.gemQuality} P/L: {gem.baseGem.chaosValue/gem.baseGem.gemLevel}</p>
-                    <p>Diff price: {gem.leveledGem.chaosValue - gem.baseGem.chaosValue}</p>
-                </div>
-            })}
+            {filteredGems &&
+                filteredGems.map((gem, index) => {
+                    return (
+                        <div key={index}>
+                            <h3>{gem.baseGem.name}</h3>
+                            <img src={gem.baseGem.icon} />
+                            <p>Value: {gem.baseGem.chaosValue} chaos</p>
+                            <p>
+                                Level: {gem.baseGem.gemLevel} Quality: {gem.baseGem.gemQuality} P/L: {gem.baseGem.chaosValue / gem.baseGem.gemLevel}
+                            </p>
+                            <p>Diff price: {gem.leveledGem.chaosValue - gem.baseGem.chaosValue}</p>
+                        </div>
+                    );
+                })}
         </div>
-    )
-}
+    );
+};

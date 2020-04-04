@@ -1,4 +1,4 @@
-import { IPoeNinjaItemOverviewLine } from "./poeNinjaItemOvierviewLine.interface";
+import { IPoeNinjaItemOverviewLine } from './poeNinjaItemOvierviewLine.interface';
 
 export interface IPoeNinjaItemOverview {
     lines: IPoeNinjaItemOverviewLine[];

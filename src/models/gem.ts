@@ -1,5 +1,5 @@
-import { IGem } from "../interfaces/gem.interface";
-import { IPoeNinjaItemOverviewLine } from "../interfaces/poe-ninja/poeNinjaItemOvierviewLine.interface";
+import { IGem } from '../interfaces/gem.interface';
+import { IPoeNinjaItemOverviewLine } from '../interfaces/poe-ninja/poeNinjaItemOvierviewLine.interface';
 
 export class Gem implements IGem {
     baseGem: IPoeNinjaItemOverviewLine;

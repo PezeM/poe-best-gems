@@ -1,4 +1,4 @@
-type GemXPTable = {[key: number]: number};
+type GemXPTable = { [key: number]: number };
 
 export const GEM_NORMAL_XP_TABLE: GemXPTable = {
     1: 0,
@@ -20,14 +20,14 @@ export const GEM_NORMAL_XP_TABLE: GemXPTable = {
     17: 28307621,
     18: 56100356,
     19: 99970095,
-    20: 342051651
-}
+    20: 342051651,
+};
 
 export const EMPOWER_SUPPORT_XP_TABLE: GemXPTable = {
     1: 0,
     2: 226854909,
-    3: 1666045137
-}
+    3: 1666045137,
+};
 
 export const BLOOD_AND_SAND_XP_TABLE: GemXPTable = {
     1: 0,
@@ -35,5 +35,5 @@ export const BLOOD_AND_SAND_XP_TABLE: GemXPTable = {
     3: 647270,
     4: 6361711,
     5: 3994925,
-    6: 529166003
-}
+    6: 529166003,
+};

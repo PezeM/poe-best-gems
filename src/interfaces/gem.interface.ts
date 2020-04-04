@@ -1,4 +1,4 @@
-import { IPoeNinjaItemOverviewLine } from "./poe-ninja/poeNinjaItemOvierviewLine.interface";
+import { IPoeNinjaItemOverviewLine } from './poe-ninja/poeNinjaItemOvierviewLine.interface';
 
 export interface IGem {
     baseGem: IPoeNinjaItemOverviewLine;

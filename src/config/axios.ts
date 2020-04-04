@@ -1,6 +1,6 @@
-import axios, { AxiosInstance } from "axios";
-import { config } from "./config";
-import { IPoeNinjaItemOverview } from "src/interfaces/poe-ninja/poeNinjaItemOverview.interface";
+import axios, { AxiosInstance } from 'axios';
+import { config } from './config';
+import { IPoeNinjaItemOverview } from 'src/interfaces/poe-ninja/poeNinjaItemOverview.interface';
 
 class Api {
     private axios: AxiosInstance;
