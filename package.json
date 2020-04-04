@@ -93,6 +93,7 @@
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
     "@types/react-dom": "^16.9.6",
+    "@types/react-table": "^7.0.13",
     "axios": "^0.19.2",
     "electron-squirrel-startup": "^1.0.0",
     "electron-window-state": "^5.0.3",
@@ -100,6 +101,7 @@
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.20",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "react-table": "^7.0.4"
   }
 }
