@@ -5,7 +5,7 @@ import { GemList } from "./gemList";
 const App = () => {
   return (
     <div>
-      <h1>Najbardziej opłacalne gemy</h1>
+      <h1>The most efficient gems to level up</h1>
       <GemList />
     </div>
   )
