@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const TableBooleanCell: React.FC<Props> = ({ value }) => {
-    return <span>{value ? 'Yes' : 'No'}</span>;
+    return <span className={value ? 'success' : 'danger'}>{value ? 'Yes' : 'No'}</span>;
 };

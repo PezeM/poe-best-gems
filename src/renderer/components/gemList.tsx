@@ -6,11 +6,13 @@ import { isGemAwakened, getGemMaxLevel, getCorruptedGemMaxLevel } from '../../he
 import { Gem } from '../../models/gem';
 import { GemTable } from './gemTable';
 import { TableBooleanCell } from './Table/tableBooleanCell';
+import { Checkbox, Button } from 'antd';
 
 export const GemList = () => {
     const [gems, setGems] = useState<Gem[]>([]);
     const [filteredGems, setFilteredGems] = useState<Gem[]>([]);
-    const [showAwakenedGems, setShowAwakenedGems] = useState(false);
+    const [showAwakenedGems, setShowAwakenedGems] = useState(true);
+    const [isLoadingData, setIsLoadingData] = useState(false);
 
     const columns = useMemo(
         () => [
@@ -33,12 +35,32 @@ export const GemList = () => {
                 Cell: ({ cell: { value } }) => <TableBooleanCell value={value} />,
             },
             {
+                Header: 'Price',
+                accessor: 'price',
+            },
+            {
+                Header: 'Price leveled',
+                accessor: 'leveledGemPrice',
+            },
+            {
                 Header: 'Price difference',
                 accessor: 'priceDifference',
             },
             {
                 Header: 'Price difference per level',
                 accessor: 'priceDifferencePerLevel',
+            },
+            {
+                Header: 'Chaos per 1M/XP',
+                accessor: 'chaosPerMilionXp',
+            },
+            {
+                Header: 'Chaos per 1M/XP Corrupted',
+                accessor: 'chaosPerMilionXpIfCorrupted',
+            },
+            {
+                Header: 'Price corrupted',
+                accessor: 'corruptedGemPrice',
             },
         ],
         [],
@@ -78,6 +100,7 @@ export const GemList = () => {
     }
 
     async function fetchGems(): Promise<void> {
+        setIsLoadingData(true);
         const allGems = await api.getGems();
         if (!allGems) return;
 
@@ -85,6 +108,7 @@ export const GemList = () => {
         setGems(mappedGems);
         setFilteredGems(mappedGems);
         setShowAwakenedGems(showAwakenedGems);
+        setIsLoadingData(false);
     }
 
     return (
@@ -92,9 +116,12 @@ export const GemList = () => {
             <h3>Gems count {filteredGems.length}</h3>
 
             <div>
-                <label>Show awakened gems</label>
-                <input type="checkbox" checked={showAwakenedGems} onChange={() => setShowAwakenedGems(!showAwakenedGems)}></input>
-                <button onClick={() => fetchGems()}>Refresh data</button>
+                <Checkbox checked={showAwakenedGems} onChange={() => setShowAwakenedGems(!showAwakenedGems)}>
+                    Show awakened gems
+                </Checkbox>
+                <Button type="primary" loading={isLoadingData} onClick={() => fetchGems()}>
+                    Refresh data
+                </Button>
             </div>
 
             {filteredGems && <GemTable columns={columns} data={filteredGems} />}

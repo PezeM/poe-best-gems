@@ -1,11 +1,12 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { GemList } from './gemList';
+import { Typography } from 'antd';
 
 const App = () => {
     return (
         <div>
-            <h1>The most efficient gems to level up</h1>
+            <Typography.Title>The most efficient gems to level up</Typography.Title>
             <GemList />
         </div>
     );
