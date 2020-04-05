@@ -1,14 +1,32 @@
 .titlebar {
     -webkit-app-region: drag;
     -webkit-user-select: none;
-    padding: 1em 1em 0 1em;
+    padding: 0.2em 1em 0 1em;
 
     .title {
+        height: 100%;
+        align-items: center;
         font-size: 1rem;
         font-weight: 600;
     }
 
     .right-side {
         text-align: right;
+
+        .icon {
+            -webkit-app-region: no-drag;
+            padding: .3em .4em .3em .4em;
+            font-size: 1.2rem;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.3);
+            }
+        }
+
+        .exit-icon:hover {
+            background-color: rgba(255, 0, 0, 0.637);
+            color: #f0f0f0;
+        }
     }
 }

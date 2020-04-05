@@ -91,6 +91,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.0.5",
     "@hot-loader/react-dom": "^16.13.0",
     "@types/react-dom": "^16.9.6",
     "@types/react-table": "^7.0.13",

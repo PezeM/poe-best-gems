@@ -6,7 +6,6 @@ import { isGemAwakened, getGemMaxLevel, getCorruptedGemMaxLevel } from '../../he
 import { Gem } from '../../models/gem';
 import { GemTable } from './gemTable';
 import { TableBooleanCell } from './Table/tableBooleanCell';
-import { Checkbox, Button, Space } from 'antd';
 import { Header } from './header';
 
 export const GemList = () => {
