@@ -6,7 +6,7 @@ import { Typography } from 'antd';
 const App = () => {
     return (
         <div>
-            <Typography.Title>The most efficient gems to level up</Typography.Title>
+            <Typography.Title level={2}>The most efficient gems to level up</Typography.Title>
             <GemList />
         </div>
     );

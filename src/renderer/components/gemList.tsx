@@ -6,7 +6,8 @@ import { isGemAwakened, getGemMaxLevel, getCorruptedGemMaxLevel } from '../../he
 import { Gem } from '../../models/gem';
 import { GemTable } from './gemTable';
 import { TableBooleanCell } from './Table/tableBooleanCell';
-import { Checkbox, Button } from 'antd';
+import { Checkbox, Button, Space } from 'antd';
+import { Header } from './header';
 
 export const GemList = () => {
     const [gems, setGems] = useState<Gem[]>([]);
@@ -113,18 +114,15 @@ export const GemList = () => {
 
     return (
         <div>
-            <h3>Gems count {filteredGems.length}</h3>
+            <Header
+                gemsCount={filteredGems.length}
+                isShowAwakenedGemsChecked={showAwakenedGems}
+                showAwakenedGems={() => setShowAwakenedGems(!showAwakenedGems)}
+                isLoadingData={isLoadingData}
+                refreshData={fetchGems}
+            />
 
-            <div>
-                <Checkbox checked={showAwakenedGems} onChange={() => setShowAwakenedGems(!showAwakenedGems)}>
-                    Show awakened gems
-                </Checkbox>
-                <Button type="primary" loading={isLoadingData} onClick={() => fetchGems()}>
-                    Refresh data
-                </Button>
-            </div>
-
-            {filteredGems && <GemTable columns={columns} data={filteredGems} />}
+            <div className="table-container">{filteredGems && <GemTable columns={columns} data={filteredGems} />}</div>
         </div>
     );
 };
