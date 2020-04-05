@@ -1,0 +1,83 @@
+@import './variables';
+
+.danger {
+    color: #a8071a;
+}
+  
+.success {
+    color: #237804;
+}
+
+.gem-table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+  
+    .gem-resizable-table {
+      width: 100%;
+      border-spacing: 0;
+  
+      tr {
+        :last-child {
+          td {
+            border-bottom: 0;
+          }
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      th, td {
+        width: 1%;
+  
+        &.collapse {
+          width: 0.0000000001%;
+        }
+  
+        :last-child {
+          border-right: 0;
+        }
+      }
+
+      td {
+        text-align: center;
+        vertical-align: middle;
+        white-space: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        transition: all 0.2s ease-in-out;
+        border-bottom: 1px solid #f0f0f0;
+      }
+  
+      thead {
+        tr {
+          background-color: rgba(0, 0, 0, 0.1);
+  
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+  
+          th {
+            vertical-align: center;
+            line-height: normal;
+            position: relative;
+            text-align: center;
+            font-size: 0.8rem;
+            padding: 0.8em 0;
+  
+            &.sort-desc {
+              box-shadow: inset 0 -6px 0 0 rgba(0, 0, 10, .6);
+            }
+  
+            &.sort-asc {
+              box-shadow: inset 0 4px 0 0 rgba(0, 0, 10, .6);
+            }
+          }
+        }
+      }
+    }
+  }
