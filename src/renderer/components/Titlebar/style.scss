@@ -1,0 +1,14 @@
+.titlebar {
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    padding: 1em 1em 0 1em;
+
+    .title {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .right-side {
+        text-align: right;
+    }
+}

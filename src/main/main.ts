@@ -22,6 +22,7 @@ const createWindow = () => {
         width: mainWindowState.width,
         x: mainWindowState.x,
         y: mainWindowState.y,
+        frame: false,
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false,

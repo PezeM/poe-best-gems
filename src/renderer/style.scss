@@ -1,5 +1,9 @@
 @import './variables';
 
+#content {
+  padding: 1rem;
+}
+
 .danger {
     color: #a8071a;
 }
@@ -10,6 +14,12 @@
 
 .table-container {
   margin-top: 1em;
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.show-awakened-gems-container {
+  text-align: right;
 }
 
 .gem-table {
